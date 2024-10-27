@@ -1,6 +1,5 @@
 /*
 
-go mod init github.com/shoce/lsifaddr
 go get -a -u -v
 go mod tidy
 
@@ -21,16 +20,6 @@ import (
 
 	yaml "gopkg.in/yaml.v3"
 )
-
-type NetInterface struct {
-	Name         string   `yaml:"name"`
-	Loopback     bool     `yaml:"loopback"`
-	PointToPoint bool     `yaml:"ptp"`
-	Up           bool     `yaml:"up"`
-	HwAddr       string   `yaml:"hwaddr"`
-	Addr         []string `yaml:"addr"`
-	Error        error    `yaml:"error,omitempty"`
-}
 
 const (
 	NL = "\n"
@@ -104,4 +93,14 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "yaml.Encoder.Encode: %v"+NL, err)
 	}
+}
+
+type NetInterface struct {
+	Name         string   `yaml:"name"`
+	Loopback     bool     `yaml:"loopback"`
+	PointToPoint bool     `yaml:"ptp"`
+	Up           bool     `yaml:"up"`
+	HwAddr       string   `yaml:"hwaddr"`
+	Addr         []string `yaml:"addr"`
+	Error        error    `yaml:"error,omitempty"`
 }
