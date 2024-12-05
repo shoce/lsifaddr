@@ -8,7 +8,6 @@ on:
 
 jobs:
 
-
   build-push-ubuntu-24-04:
     runs-on: ubuntu-24.04
     steps:
